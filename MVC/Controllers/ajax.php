@@ -35,7 +35,6 @@ class ajax extends Controller
 	{
 		$i = $_POST['i'];
 		$group = $_POST['group'];
-		echo $this->model->Count($group);
 		$total_records = $this->model->Count($group);
 		$limit = 10;
 		$total_page = ceil($total_records / $limit);
@@ -46,9 +45,34 @@ class ajax extends Controller
 		}
 		$start = ($i-1)*$limit;
 		$result = $this->model->Load($group,$start,$limit);
-		echo "<pre>";
-		
-		print_r($result);
+		foreach ($result as $data) {
+			if($data['PricePromo']==0){
+			echo '<li class="item">
+					<a href="'.$data["folder"].'/detail/'.$data["ProductId"].'">
+						<img src="public/'.$data["ProductImage"].'">
+						<h3>'.$data["ProductName"].'</h3>
+						<div class="price">
+							<strong>'.number_format($data['PriceCurrent'],0,"",".").'₫</strong>
+							<span></span>
+						</div>
+						<div class="promo">'.$data["Promo1"].'</div>
+					</a>
+				</li>';
+			}else{
+				echo '<li class="item">
+					<a href="'.$data["folder"].'/detail/'.$data["ProductId"].'">
+						<img src="public/'.$data["ProductImage"].'">
+						<h3>'.$data["ProductName"].'</h3>
+						<div class="price">
+							<strong>'.number_format($data['PricePromo'],0,"",".").'₫</strong>
+							<span>'.number_format($data['PriceCurrent'],0,"",".").'₫</span>
+						</div>
+						<div class="promo">'.$data["Promo1"].'</div>
+						<label class="discount">GIẢM '.number_format($data['PriceCurrent']-$data['PricePromo'],0,"",".").'₫</label>
+					</a>
+				</li>';
+			}
+		}
 	}
 	public function get_province()
 	{
