@@ -32,7 +32,7 @@ $categ = $data["categ"]; require_once 'banner/'.$categ.'.php'; ?>
 	});
 </script>
 <?php }  ?>
-<a class="viewmore">Xem thêm <span><?php echo ($data["num"]-10).'</span><span> '.$data[$categ][0]["GroupProduct"]?><span></a>
+<a class="viewmore">Xem thêm <span><?php echo ($data["num"]-10).'</span><span> '.$data[$categ][0]["GroupProduct"]?></span></a>
 <script>
 	$(document).ready(function() {
 		group = $('.viewmore span:last-child').html()
