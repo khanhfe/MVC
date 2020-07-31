@@ -43,6 +43,10 @@ $categ = $data["categ"]; require_once 'banner/'.$categ.'.php'; ?>
 			$('.viewmore').css('display','none')
 		}
 		$('.viewmore').click(function(event) {
+			i+=1;
+			$.post('ajax/load_product',{i:i,group:group},function(data){
+				$('.homeproduct').append(data)
+			})
 			total = $('span:first-child',this).html()
 			total-=10
 			console.log(total)
@@ -50,10 +54,6 @@ $categ = $data["categ"]; require_once 'banner/'.$categ.'.php'; ?>
 			if($('span',this).html()<=0){
 				$(this).css('display','none')
 			}
-			i+=1;
-			$.post('ajax/load_product',{i:i,group:group},function(data){
-				$('.homeproduct').append(data)
-			})
 		});
 	});
 </script>
