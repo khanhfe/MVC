@@ -35,14 +35,23 @@ $categ = $data["categ"]; require_once 'banner/'.$categ.'.php'; ?>
 <a class="viewmore">Xem thêm <span><?php echo ($data["num"]-10).'</span><span> '.$data[$categ][0]["GroupProduct"]?></span></a>
 <script>
 	$(document).ready(function() {
-		group = $('.viewmore span:last-child').html()
+		group = $('.viewmore span:last-child').text()
 		i = 1
+		number = $('.viewmore span:first-child').html()
+		number = parseInt(number)
+		if(number<1){
+			$('.viewmore').css('display','none')
+		}
 		$('.viewmore').click(function(event) {
-			if($('span:first-child',this).html()<=0){
+			total = $('span:first-child',this).html()
+			total-=10
+			console.log(total)
+			$('span:first-child',this).html(total)
+			if($('span',this).html()<=0){
 				$(this).css('display','none')
 			}
 			i+=1;
-			$.post('/MVC/ajax/load_product',{i:i,group:group},function(data){
+			$.post('ajax/load_product',{i:i,group:group},function(data){
 				$('.homeproduct').append(data)
 			})
 		});
