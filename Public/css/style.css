@@ -389,6 +389,7 @@ label.discount {
 }
 .homeproduct.laptop .item a img{
     margin: 45px auto;
+    width: 220px;
 }
 .homeproduct .item h3{
     font-size: 14px;

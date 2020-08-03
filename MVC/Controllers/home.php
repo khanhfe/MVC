@@ -21,5 +21,8 @@ class home extends Controller
         	"Laptop" => $this->model->ProductCategory("Laptop")
         ]);
     }
+    public function err(){
+        $this->view("404");
+    }
 }
 ?>

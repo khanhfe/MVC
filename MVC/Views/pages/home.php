@@ -48,10 +48,10 @@
         </li>
     </ul>
     <div class="twobanner ">
-	    <a aria-label="slide" href="dtdd">
+	    <a aria-label="slide" href="">
 	        <img style="cursor:pointer" src="public/img/banner/A31-398-110-398x110.png" alt="A21s" width="398" height="110">
 	    </a>
-		<a aria-label="slide" href="dtdd">
+		<a aria-label="slide" href="">
 			<img style="cursor:pointer" src="public/img/banner/398-110copy-398x110.png" width="398" height="110">
 		</a>    
 	</div>
@@ -67,7 +67,7 @@
 				<?php $mobile = $data["Mobile"]; foreach ($mobile as $item) {?>
 				<div class="owl-item">
 					<div class="item">
-						<a href="dtdd/detail/<?php echo$item['ProductId'] ?>">
+						<a href="<?php echo $item['folder']."/detail/".$item['ProductId'] ?>">
 							<img src="public/<?php echo $item['ProductImage'] ?>" width="180">	
 							<h5><?php echo $item['ProductName']; ?></h5>
 							<div class="price">
@@ -101,7 +101,7 @@
 <ul class="homeproduct laptop">
 	<?php $Laptop = $data["Laptop"]; foreach ($Laptop as $item) { ?>
 	<li class="item">
-		<a href="laptop/detail/<?php echo $item['ProductId'] ?>">
+		<a href="<?php echo $item['folder']."/detail/".$item['ProductId'] ?>">
 			<img src="public/<?php echo $item['ProductImage'];?>" >
 			<h3><?php echo $item['ProductName']; ?></h3>
 			<div class="price">
@@ -126,7 +126,7 @@
 <ul class="homeproduct tablet">
 	<?php $Tablet = $data["Tablet"]; foreach ($Tablet as $item) { ?>
 	<li class="item">
-		<a href="tablet/detail/<?php echo $item['ProductId'] ?>">
+		<a href="<?php echo $item['folder']."/detail/".$item['ProductId'] ?>">
 			<img src="public/<?php echo $item['ProductImage'];?>" >
 			<h3><?php echo $item['ProductName']; ?></h3>
 			<div class="price">

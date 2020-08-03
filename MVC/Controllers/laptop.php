@@ -16,13 +16,23 @@ class laptop extends Controller
         ]);
 	}
 	public function detail($id){
-		$id = (int)$id[0];
-    	$this->view("master-1",
-    	[
-    		"page" => "detail",
-    		"product" => $this->model->ViewProduct($id),
-    		"categ" => "detail-lap"
-    	]);
+		$id;
+        if (isset($id[0])) {
+            $id = (int)$id[0];
+        };
+        if ($id==0) {
+            $this->view("404");
+        }else{
+        	$this->view("master-1",
+        	[
+        		"page" => "detail",
+        		"product" => $this->model->ViewProduct($id),
+        		"categ" => "detail-lap"
+        	]);
+        }
+    }
+    public function err(){
+        $this->view("404");
     }
 }
 ?>

@@ -11,16 +11,22 @@ class App
 	{
 		$arr = $this->URLProcess();
 		
-		if (isset($arr[0])&&file_exists('./MVC/Controllers/'.$arr[0].'.php')) {
-			$this->controller = $arr[0];
+		if (isset($arr[0])) {
+			if (file_exists('./MVC/Controllers/'.$arr[0].'.php')) {
+				$this->controller = $arr[0];
+			}else{
+				$this->controller = "err";
+			};
 			unset($arr[0]);
 		}
 		require_once './MVC/Controllers/'.$this->controller.'.php';
 		$this->controller = new $this->controller;
 
-		if (isset($arr[1])) {
+		if (isset($arr[1])){
 			if (method_exists($this->controller,$arr[1])) {
 				$this->action = $arr[1];
+			}else{
+				$this->action = "err";
 			}
 			unset($arr[1]);
 		}
@@ -35,8 +41,7 @@ class App
 		if (isset($_GET['url']) ) {
 			$this->url = $_GET['url'];	
 			return explode('/', filter_var(trim($this->url, "/")));
-		}else
-		$this->url = "home";
+		}else $this->url = "home";
 	}
 
 }

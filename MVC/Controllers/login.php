@@ -13,5 +13,8 @@ class login extends Controller
         	"page" => "login"
         ]);
     }
+    public function err(){
+        $this->view("404");
+    }
 }
 ?>

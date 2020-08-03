@@ -21,6 +21,36 @@ class ProductModel extends DB
 		}
 		return $result;
 	}
+	public function FilterBrand($group,$brand)
+	{
+		$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group' AND product.Brand = '$brand'";
+		$query = mysqli_query($this->con, $sql);
+		$result = array();
+		if($query){
+			while($row = mysqli_fetch_assoc($query)){
+				$result[] =$row;
+			}
+		}
+		return $result;
+	}
+	public function Sort($sort,$group)
+	{
+		if ($sort == 1) {
+			$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group' ORDER BY product.PriceCurrent DESC";
+		}else if($sort == 2){
+			$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group' ORDER BY product.PriceCurrent ASC";
+		}else{
+			$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group'";
+		}
+		$query = mysqli_query($this->con, $sql);
+		$result = array();
+		if($query){
+			while($row = mysqli_fetch_assoc($query)){
+				$result[] =$row;
+			}
+		}
+		return $result;
+	}
 	public function Count($group)
 	{
 		$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group'";

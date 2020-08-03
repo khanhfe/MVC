@@ -83,9 +83,9 @@ a{
     margin: 0 2px;
     transform: scale(0);
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
-    animation: fx 1s ease infinite;
+    animation: overlay 1s ease infinite;
 }
-@keyframes fx{
+@keyframes overlay{
     0%{
         opacity: 0;
         transform: scale(0);

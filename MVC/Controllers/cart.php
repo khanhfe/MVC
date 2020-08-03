@@ -12,15 +12,15 @@ class cart extends Controller
 
 	public function add_to_cart($id)
 	{
-		$this->default();
 		$id = (int)$id[0];
-		if (isset($id)&&$id!=0) {
+		if ($id!=0&&$this->model("ProductModel")->ViewProduct($id)!=null) {
 			$product = $this->model("ProductModel")->ViewProduct($id);
 			$color = $this->model("ProductModel")->GetColor($id);
 			if(!isset($_SESSION['cart'][$id])){
 				$_SESSION['cart'][$id] = array(
 					'id' => $id,
 					'name' => $product['ProductName'],
+					'folder' => $product['folder'],
 					'pricecurrent' => $product['PriceCurrent'],
 					'pricepromo' => $product['PricePromo'],
 					'color' => array($color),
@@ -33,12 +33,22 @@ class cart extends Controller
 				);
 			}
 		}
+		$this->default();
+		return $_SESSION['cart'];
 	}
 	public function del_product($id)
 	{
-		$this->default();
 		$id = (int)$id[0];
 		unset($_SESSION['cart'][$id]);
+		$this->default();
 	}
+	public function des_session()
+	{
+		session_destroy();
+		$this->default();
+	}
+	public function err(){
+        $this->view("404");
+    }
 }
 ?>

@@ -8,27 +8,26 @@
 <div class="clr"></div>
 <div class="filter">
 	<div class="brand">
-		<a href="laptop-apple">
+		<a href="javascript:void(0)" data-brand="Macbook">
 			<img src="public/img/brand/Macbook44-b_41.png">
 		</a>
-		<a href="laptop-asus">
+		<a href="javascript:void(0)" data-brand="Asus">
 			<img src="public/img/brand/Asus44-b_35.jpg">
 		</a>
-		<a href="laptop-hp">
+		<a href="javascript:void(0)" data-brand="HP">
 			<img src="public/img/brand/HP-Compaq44-b_36.jpg">
 		</a>
-		<a href="laptop-lenovo">
+		<a href="javascript:void(0)" data-brand="Lenovo">
 			<img src="public/img/brand/Lenovo44-b_36.jpg">
 		</a>
-		<a href="laptop-acer">
+		<a href="javascript:void(0)" data-brand="Acer">
 			<img src="public/img/brand/Acer44-b_37.jpg">
 		</a>
-		<a href="laptop-dell">
+		<a href="javascript:void(0)" data-brand="Dell">
 			<img src="public/img/brand/Dell44-b_34.jpg">
 		</a>
-		<a href="laptop-huawei">
+		<!-- <a href="javascript:void(0)" data-brand="Huawei">
 			<img src="public/img/brand/Huawei42-b_30.jpg">
-		</a>
+		</a> -->
 	</div>
 </div>
-<h1 class="h1">Danh mục laptop</h1>

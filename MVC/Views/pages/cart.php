@@ -11,7 +11,7 @@
 				<span class="dot"></span>
 			</span>
 		</div>
-		<form action="#" method="post" accept-charset="utf-8">
+		<form action="/MVC/pay" method="post" accept-charset="utf-8">
 			<div class="detail_cart">
 				<ul class="list_order">
 					<?php 
@@ -25,14 +25,14 @@
 					?>
 					<li>
 						<div class="colimg">
-							<a href="<?php echo '../dtdd/detail/'.$cart['id'] ?>">
-								<img data-value="<?php echo $cart['id'] ?>" src="<?php echo '../../public/'.$cart['image'] ?>">
+							<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>">
+								<img data-value="<?php echo $cart['id'] ?>" src="<?php echo '/MVC/public/'.$cart['image'] ?>">
 							</a>
-							<a class="delete" href="../del_product/<?php echo$cart['id'] ?>"><span></span>Xóa</a>
+							<a class="delete" href="/MVC/cart/del_product/<?php echo$cart['id'] ?>"><span></span>Xóa</a>
 						</div>
 						<div class="colinfo">
 							<strong><?php echo number_format($cart['pricecurrent'],0,"","."); ?>₫</strong>
-							<a href="<?php echo '../dtdd/detail/'.$cart['id'] ?>"><?php echo $cart['name']; ?></a>
+							<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>"><?php echo $cart['name']; ?></a>
 							<div class="promotion  webnote ">
 								<span class="notnull"><?php echo $cart['promo1']; ?></span>
 					            <span class="notnull"><?php echo $cart['promo2']; ?></span>
@@ -64,11 +64,9 @@
 					        	<span class="color">Màu: </span>
 					        	<div class="listcolor">
 					        	<?php 
-					        		foreach ($cart['color'] as $color) {
-										foreach ($color as $codecolor ) {
-					        	?>
+					        		foreach ($cart['color'] as $color){foreach ($color as $codecolor ){ ?>
 					        		<div class="blockcolor"  data-color="<?php echo $codecolor['Color'];?>">
-					        			<img src="<?php echo '../../public/'.$codecolor['image_product']; ?>" >
+					        			<img src="<?php echo '/MVC/public/'.$codecolor['image_product']; ?>" >
 					        			<span> <?php echo " ".$codecolor['Color']; ?></span>
 					        		</div>
 					        	<?php } } ?>
@@ -80,13 +78,12 @@
 					        	<div class="number">1</div>
 					        	<div class="augment"></div>
 					        	<input type="hidden" name="amount[]" value="1" class="amount">
-					        	<?php $getvalue = ''; echo $getvalue; ?>
 					        	<input type="hidden" name="price" value="<?php echo $cart['pricecurrent'] ?>">
 					        </div>
 					        <div class="clr"></div>
 						</div>
 					</li>
-					<?php }  ?>
+					<?php }?>
 				</ul>
 				<div class="area_total">
 		            <div>
@@ -240,13 +237,13 @@
 			</div>
 			<div class="new-follow">
                 <div class="choosepayment">
-                    <button name="submit" onclick="return checkInforUser()" class="payoffline full">Đặt hàng</button>
+                    <button name="submit" type="submit" onclick="return checkInforUser()" class="payoffline full">Đặt hàng</button>
                 </div>
                 <p style="text-align:center">Bạn có thể chọn hình thức thanh toán sau khi đặt hàng</p>
             </div>
 		</form>
 	</div>
-	<p class="provision">Bằng cách đặt hàng, bạn đồng ý với <a href="/tos" target="_blank">Điều khoản sử dụng</a> của Thegioididong</p>
+	<p class="provision">Bằng cách đặt hàng, bạn đồng ý với <a href="/tos" target="_blank">Điều khoản sử dụng</a> của iMoblie</p>
 </section>
 <section id="nullcart">
 	<div class="null_cart">
@@ -260,11 +257,6 @@
 </section>
 <script type="text/javascript" charset="utf-8" async defer>
 	$(document).ready(function($) {
-		$('.promotion span').each(function() {
-			if($(this).html()==="Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)"){
-				$(this).append(" <a href='#'>(click xem chi tiết)</a>")
-			}
-		});
 		$('.choosecolor').each(function() {
 			$('.color',this).append($('.blockcolor',this).attr('data-color'))
 			$('input[name="color[]"]',this).val($('.blockcolor',this).attr('data-color'))
@@ -375,10 +367,12 @@
 			$('input[name="province"]').val(listprovince)
 			listdist = $('#districtvalue').html();
 			$('input[name="district"]').val(listdist)
+			$('#nulldistrict').css('display', 'none');
 		});
 		$('.ward').on('click','.listward', function(event) {
 			listward = $('#wardvalue').html();
 			$('input[name="ward"]').val(listward)
+			$('#nullward').css('display', 'none');
 		});
 		$('input[type="radio"]').change(function(event) {
 			$('#errorgender').html('')
@@ -395,7 +389,7 @@
 		});
 		$('input[value="false"]').click(function(event) {
 			$('.area_address').addClass('supermarket');
-			$('#ward, #BillingAddress_Address,.ol1,.ol3,.infocontact,.deviceother').css('display','none')
+			$('#ward, #BillingAddress_Address,#address,.ol1,.ol3,.infocontact,.deviceother').css('display','none')
 			$('.introduction').html("Chúng tôi sẽ sớm cập nhật các siêu thị gần nhất đến quý khách.<br>Quý khách vui lòng đến các siêu thị thuộc hệ thống <b>iMobile.com</b> để nhận máy trong 24h, hết 24h đơn hàng sẽ tự động hủy!")
 			$('.introduction').css('margin','10px 0 20px ')
 			$('.introduction').css('line-height','22px')
@@ -432,21 +426,17 @@
 </script>
 <script type="text/javascript" charset="utf-8">
 	function checkInforUser(){
-		var male = document.getElementById('male');
-		var female = document.getElementById('female');
-		var city = document.querySelector('#default').innerHTML
-		var district = document.querySelector('#districtvalue').innerHTML
-		var ward = document.querySelector('#wardvalue').innerHTML
-		if(city==='Chọn tỉnh, thành phố'){
-			document.querySelector('#nullcity').innerHTML = 'Quý khách vui lòng chọn tỉnh thành phố'
-		}
-		if(district==='Chọn quận, huyện'){
-			document.querySelector('#nulldistrict').innerHTML = 'Quý khách vui lòng chọn quận huyện'
-			document.querySelector('#district').style.marginBottom = '10px'
+		male = document.getElementById('male');
+		female = document.getElementById('female');
+		district = document.getElementById('districtvalue').innerHTML
+		ward = document.getElementById('wardvalue').innerHTML
+		if(district=='Chọn quận, huyện'){
+			document.getElementById('nulldistrict').innerHTML = 'Quý khách vui lòng chọn quận huyện'
+			document.getElementById('district').style.marginBottom = '10px'
 			document.getElementById("nulldistrict").style.cssText = 'line-height:30px;margin-top:7px;'
 		}
-		if(ward==='Chọn phường, xã'){
-			document.querySelector('#nullward').innerHTML = 'Quý khách vui lòng chọn phưỡng xã'
+		if(ward=='Chọn phường, xã'){
+			document.getElementById('nullward').innerHTML = 'Quý khách vui lòng chọn phưỡng xã'
 		}
 		if (!male.checked&&!female.checked) {
 			document.getElementById('errorgender').innerHTML = "Mời quý khách chọn danh xưng";
@@ -602,6 +592,6 @@
 	var run = setInterval(runtimeDestroySession,1000)
 	function runtimeDestroySession(){
 		time -= 1000;
-		if (time==0) {clearInterval(run);window.location = "delete.php"}
+		if (time==0) {clearInterval(run);window.location = "/MVC/cart/des_session"}
 	}
 </script>

@@ -8,30 +8,29 @@
 <div class="clr"></div>
 <div class="filter">
 	<div class="brand">
-		<a href="dtdd-samsung/">
+		<a href="javascript:void(0)" data-brand="Samsung">
 			<img src="public/img/brand/Samsung42-b_25.jpg">
 		</a>
-		<a href="dtdd-apple-iphone">
+		<a href="javascript:void(0)" data-brand="iPhone (Apple)">
 			<img src="public/img/brand/iPhone-(Apple)42-b_16.jpg">
 		</a>
-		<a href="dtdd-oppo">
+		<a href="javascript:void(0)" data-brand="OPPO">
 			<img src="public/img/brand/OPPO42-b_9.png">
 		</a>
-		<a href="dtdd-xiaomi">
+		<a href="javascript:void(0)" data-brand="Xiaomi">
 			<img src="public/img/brand/Xiaomi42-b_45.jpg">
 		</a>
-		<a href="dtdd-vsmart">
+		<a href="javascript:void(0)" data-brand="Vsmart">
 			<img src="public/img/brand/Vsmart42-b_40.png">
 		</a>
-		<a href="dtdd-vivo">
+		<a href="javascript:void(0)" data-brand="Vivo">
 			<img src="public/img/brand/Vivo42-b_50.jpg">
 		</a>
-		<a href="dtdd-realme">
+		<a href="javascript:void(0)" data-brand="Realme">
 			<img src="public/img/brand/Realme42-b_37.png">
 		</a>
-		<a href="dtdd-huawei">
+		<a href="javascript:void(0)" data-brand="Huawei">
 			<img src="public/img/brand/Huawei42-b_30.jpg">
 		</a>
 	</div>
 </div>
-<h1 class="h1">Danh mục điện thoại</h1>

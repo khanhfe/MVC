@@ -193,6 +193,10 @@ nav a.tablet{
 nav a.news{
     width:74px;
 }
+nav a.history{
+    vertical-align: middle;
+    padding-top: 15px;
+}
 nav a.account{
     width: 110px;
     height: 35px;
@@ -237,10 +241,15 @@ nav a.account{
     width: 28px;
     height: 25px;
 }
-nav a:hover{
-    background: #f5f5f5;
+.icon-cart {
+    display: block;
+    margin: 0 auto 2px;
+    width: 30px;
+    height: 23px;
+    background-position: -263px -29px;
 }
-nav #utility-cardsim:hover{
+
+nav a:hover,nav a.actmenu{
     background: #f5f5f5;
 }
 section{

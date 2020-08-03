@@ -8,24 +8,23 @@
 <div class="clr"></div>
 <div class="filter">
 	<div class="brand">
-		<a href="laptop-apple/">
+		<a href="javascript:void(0)" data-brand="iPad (Apple)">
 			<img src="public/img/brand/iPad-(Apple)522-b_28.jpg">
 		</a>
-		<a href="laptop-asus">
+		<a href="javascript:void(0)" data-brand="Samsung">
 			<img src="public/img/brand/Samsung42-b_25.jpg">
 		</a>
-		<a href="laptop-hp">
+		<a href="javascript:void(0)" data-brand="Huawei">
 			<img src="public/img/brand/Huawei42-b_30.jpg">
 		</a>
-		<a href="laptop-lenovo">
+		<a href="javascript:void(0)" data-brand="Lenovo">
 			<img src="public/img/brand/Lenovo44-b_36.jpg">
 		</a>
-		<a href="laptop-acer">
+		<a href="javascript:void(0)" data-brand="Mastel">
 			<img src="public/img/brand/Masstel522-b_35.png">
 		</a>
-		<a href="laptop-dell">
+		<a href="javascript:void(0)" data-brand="Mobel">
 			<img src="public/img/brand/Mobell522-b_30.jpg">
 		</a>
 	</div>
 </div>
-<h1 class="h1">Danh mục máy tính bảng</h1>

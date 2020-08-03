@@ -6,7 +6,8 @@ class ajax extends Controller
 	{
 		$this->model = $this->model("ProductModel");
 	}
-	public function default()
+	public function default(){}
+	public function search()
 	{
 		$key = $_POST['key'];
 		$result = $this->model->search($key);
@@ -74,6 +75,74 @@ class ajax extends Controller
 			}
 		}
 	}
+	public function filter_brand()
+	{
+		$brand = $_POST['brand'];
+		$group = $_POST['group'];
+		$result = $this->model->FilterBrand($group,$brand);
+		foreach ($result as $data) {
+			if($data['PricePromo']==0){
+			echo '<li class="item">
+					<a href="'.$data["folder"].'/detail/'.$data["ProductId"].'">
+						<img src="public/'.$data["ProductImage"].'">
+						<h3>'.$data["ProductName"].'</h3>
+						<div class="price">
+							<strong>'.number_format($data['PriceCurrent'],0,"",".").'₫</strong>
+							<span></span>
+						</div>
+						<div class="promo">'.$data["Promo1"].'</div>
+					</a>
+				</li>';
+			}else{
+				echo '<li class="item">
+					<a href="'.$data["folder"].'/detail/'.$data["ProductId"].'">
+						<img src="public/'.$data["ProductImage"].'">
+						<h3>'.$data["ProductName"].'</h3>
+						<div class="price">
+							<strong>'.number_format($data['PricePromo'],0,"",".").'₫</strong>
+							<span>'.number_format($data['PriceCurrent'],0,"",".").'₫</span>
+						</div>
+						<div class="promo">'.$data["Promo1"].'</div>
+						<label class="discount">GIẢM '.number_format($data['PriceCurrent']-$data['PricePromo'],0,"",".").'₫</label>
+					</a>
+				</li>';
+			}
+		}
+	}
+	public function sort()
+	{
+		$sort = $_POST['sort'];
+		$group = $_POST['group'];
+		$result = $this->model->Sort($sort,$group);
+		foreach ($result as $data) {
+			if($data['PricePromo']==0){
+			echo '<li class="item">
+					<a href="'.$data["folder"].'/detail/'.$data["ProductId"].'">
+						<img src="public/'.$data["ProductImage"].'">
+						<h3>'.$data["ProductName"].'</h3>
+						<div class="price">
+							<strong>'.number_format($data['PriceCurrent'],0,"",".").'₫</strong>
+							<span></span>
+						</div>
+						<div class="promo">'.$data["Promo1"].'</div>
+					</a>
+				</li>';
+			}else{
+				echo '<li class="item">
+					<a href="'.$data["folder"].'/detail/'.$data["ProductId"].'">
+						<img src="public/'.$data["ProductImage"].'">
+						<h3>'.$data["ProductName"].'</h3>
+						<div class="price">
+							<strong>'.number_format($data['PricePromo'],0,"",".").'₫</strong>
+							<span>'.number_format($data['PriceCurrent'],0,"",".").'₫</span>
+						</div>
+						<div class="promo">'.$data["Promo1"].'</div>
+						<label class="discount">GIẢM '.number_format($data['PriceCurrent']-$data['PricePromo'],0,"",".").'₫</label>
+					</a>
+				</li>';
+			}
+		}
+	}
 	public function get_province()
 	{
 		$province = $this->model("GetAddress")->province();
@@ -88,7 +157,6 @@ class ajax extends Controller
 		foreach ($district as $value) {
 			echo '<div class="list listdist" value="'.$value["id"].'">'.$value["_name"].'</div>';
 		}
-		echo '<div class="error" id="nulldistrict"></div>';
 	}
 	public function get_ward()
 	{
@@ -101,7 +169,6 @@ class ajax extends Controller
 		foreach ($street as $value) {
 			echo '<div class="list listward" value="'.$value["id"].'">'.$value["_name"].'</div>';
 		}
-		echo '<div class="error" id="nullward"></div>';
 	}
 }
 ?>

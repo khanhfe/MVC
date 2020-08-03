@@ -77,7 +77,7 @@
 				</div>
 			</div>
 			<div class="area_order btn-buy">
-				<a id="mua-ngay" href="../../cart/add_to_cart/<?php echo $product['ProductId'] ?>" class="buy_now"><b>Mua ngay</b><span>Giao tận nơi hoặc nhận tại siêu thị</span></a>
+				<a id="mua-ngay" href="/MVC/cart/add_to_cart/<?php echo $product['ProductId'] ?>" class="buy_now"><b>Mua ngay</b><span>Giao tận nơi hoặc nhận tại siêu thị</span></a>
 				<a id="tra-gop" class="buy_repay " href=""><b>Mua trả góp 0%</b><span>Thủ tục đơn giản</span></a>
 				<a class="buy_repay s " href=""><b>Trả góp  qua thẻ</b><span>Visa, Master, JCB</span></a>
 			</div>
