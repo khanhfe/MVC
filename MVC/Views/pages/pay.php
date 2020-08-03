@@ -6,12 +6,12 @@
             </div>
         </div>
         <div class="thank">
-        Cảm ơn <b><?php echo $_SESSION['gender'] ." ". $_SESSION['fullname'];  ?></b> đã cho iMobile.com cơ hội được phục vụ. Trước , nhân viên iMobile.com sẽ <b>gửi tin nhắn hoặc gọi điện </b>xác nhận đặt hàng tại siêu thị cho <?php echo $_SESSION['gender']; ?>
+        Cảm ơn <b><?php echo $_POST['gender'] ." ". $_POST['FullName'];  ?></b> đã cho iMobile.com cơ hội được phục vụ. Trước , nhân viên iMobile.com sẽ <b>gửi tin nhắn hoặc gọi điện </b>xác nhận đặt hàng tại siêu thị cho <?php echo $_POST['gender']; ?>
     	</div>
     	<div class="titlebill">Thông tin đặt hàng:</div>
     	<div class="infoorder">
 			<div>Người nhận: <b><?php echo $_POST['FullName']; ?>,<?php echo $_POST['PhoneNumber']; ?></b></div>
-			<div>Địa chỉ nhận hàng: <b><?php if($_POST['BillingAddress']==null){echo "Các siêu thị thuộc hệ thống trong khu vực: ";}; echo $_SESSION['address']; ?></b> </div>
+			<div>Địa chỉ nhận hàng: <b><?php if($_POST['BillingAddress']==null){echo "Các siêu thị thuộc hệ thống trong khu vực: ";}; echo $_POST['BillingAddress'].", ".$_POST['ward'].", ".$_POST['district'].", ".$_POST['province']; ?></b></div>
 			<div>Thời gian nhận hàng dự kiến: 
 				<b> Trước <?php $currenttime = date('l, yy-m-d H:i:s');
 					$date = new DateTime($currenttime);
@@ -19,7 +19,7 @@
 					echo $date->format('H')." giờ 00 phút "." Ngày mai ".$date->format('d/m'); ?>	
 				</b>
 			</div>
-			<div>Tổng tiền: <strong><?php echo number_format($_SESSION['pay'],0,"","."); ?>₫</strong></div>
+			<div>Tổng tiền: <strong><?php echo number_format($_POST['pay'],0,"","."); ?>₫</strong></div>
     	</div>
     	<div class="mess-payment" id="mess-payment">
 		    <span>
@@ -73,7 +73,7 @@
     	</div>
     	<div class="titlebill">Sản phẩm đã mua:</div>
     	<ul class="list_order">
-    		<?php $i=0; foreach($_SESSION['infoProduct'] as $cart) { ?>
+    		<?php $i=0; foreach($_SESSION['cart'] as $cart) { ?>
 			<li>
 				<div class="colimg">
 					<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>">
@@ -81,8 +81,8 @@
 					</a>
 				</div>
 				<div class="colinfo">
-    				<strong><?php echo number_format($cart['priceunit'],0,"","."); ?>₫</strong>
-    				<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>"><?php echo $cart['nameproduct']; ?></a>
+    				<strong><?php echo number_format($cart['pricecurrent'],0,"","."); ?>₫</strong>
+    				<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>"><?php echo $cart['name']; ?></a>
     				<div class="onecolor">
                         <span>Màu:</span> <?php echo $cart['color'] = $_POST['color'][$i]; ?>                         
                     </div>
