@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Lỗi 404</title>
-	<link href="/MVC/public/img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="/imobile/public/img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<style type="text/css" media="screen">
 		body, input, button, option, textarea, label, legend, h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		    font: 14px/18px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
@@ -92,7 +92,7 @@
 <body>
 	<div class="errorswrap">
         <h1>Rất tiếc, trang bạn tìm kiếm không tồn tại</h1>
-        <form id="search-site" action="/MVC/search" method="post" accept-charset="utf-8" autocomplete="off" return="keyUp()">
+        <form id="search-site" action="/MVC/search" method="post" accept-charset="utf-8" autocomplete="off">
             <input class="topinput" type="text" id="search-keyword" name="key" placeholder="Tìm kiếm" >
             <button class="btntop" type="submit" onclick="return validate()"><i class="iconerror-topsearch"></i></button>
         </form>

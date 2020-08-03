@@ -1,6 +1,6 @@
 <section id="cart">
 	<div class="bar-top">
-    	<a href="/MVC" class="buymore">Mua thêm sản phẩm khác</a>
+    	<a href="/imobile" class="buymore">Mua thêm sản phẩm khác</a>
     	<div class="yourcart">Giỏ hàng của bạn</div>
 	</div>
 	<div class="wrap_cart">
@@ -11,7 +11,7 @@
 				<span class="dot"></span>
 			</span>
 		</div>
-		<form action="/MVC/pay" method="post" accept-charset="utf-8">
+		<form action="pay" method="post" accept-charset="utf-8">
 			<div class="detail_cart">
 				<ul class="list_order">
 					<?php 
@@ -25,14 +25,14 @@
 					?>
 					<li>
 						<div class="colimg">
-							<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>">
-								<img data-value="<?php echo $cart['id'] ?>" src="<?php echo '/MVC/public/'.$cart['image'] ?>">
+							<a href="<?php echo $cart['folder'].'/detail/'.$cart['id'] ?>">
+								<img data-value="<?php echo $cart['id'] ?>" src="<?php echo 'public/'.$cart['image'] ?>">
 							</a>
-							<a class="delete" href="/MVC/cart/del_product/<?php echo$cart['id'] ?>"><span></span>Xóa</a>
+							<a class="delete" href="cart/del_product/<?php echo$cart['id'] ?>"><span></span>Xóa</a>
 						</div>
 						<div class="colinfo">
 							<strong><?php echo number_format($cart['pricecurrent'],0,"","."); ?>₫</strong>
-							<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>"><?php echo $cart['name']; ?></a>
+							<a href="<?php echo $cart['folder'].'/detail/'.$cart['id'] ?>"><?php echo $cart['name']; ?></a>
 							<div class="promotion  webnote ">
 								<span class="notnull"><?php echo $cart['promo1']; ?></span>
 					            <span class="notnull"><?php echo $cart['promo2']; ?></span>
@@ -66,7 +66,7 @@
 					        	<?php 
 					        		foreach ($cart['color'] as $color){foreach ($color as $codecolor ){ ?>
 					        		<div class="blockcolor"  data-color="<?php echo $codecolor['Color'];?>">
-					        			<img src="<?php echo '/MVC/public/'.$codecolor['image_product']; ?>" >
+					        			<img src="<?php echo 'public/'.$codecolor['image_product']; ?>" >
 					        			<span> <?php echo " ".$codecolor['Color']; ?></span>
 					        		</div>
 					        	<?php } } ?>
@@ -237,6 +237,7 @@
 			</div>
 			<div class="new-follow">
                 <div class="choosepayment">
+                	<input type="hidden" name="time" value="<?php echo date('H:i, d-m-yy'); ?>">
                     <button name="submit" type="submit" onclick="return checkInforUser()" class="payoffline full">Đặt hàng</button>
                 </div>
                 <p style="text-align:center">Bạn có thể chọn hình thức thanh toán sau khi đặt hàng</p>
@@ -249,7 +250,7 @@
 	<div class="null_cart">
         <i class="iconnoti iconnull"></i>
         Không có sản phẩm nào  trong giỏ hàng
-        <a href="/MVC" class="buyother">Về trang chủ</a>
+        <a href="/imobile" class="buyother">Về trang chủ</a>
         <div class="callship">Khi cần trợ giúp vui lòng gọi 
         	<a href="tel:18001060">1900.2803</a> hoặc <a href="tel:02836221060">024.2001.2803</a> (7h30 - 22h)
         </div>
@@ -344,23 +345,23 @@
 			$('#wardvalue').html(listward);
 			$('#wardvalue').attr('value',index);
 		});
-		$.post('/MVC/ajax/get_province', {}, function(data) {
+		$.post('ajax/get_province', {}, function(data) {
 			$('.city').html(data);
 		});
 		ProvinceID = $('#default').attr('value');
-		$.post('/MVC/ajax/get_district', {'ID': ProvinceID}, function(data) {
+		$.post('ajax/get_district', {'ID': ProvinceID}, function(data) {
 			$('.district').html(data);
 		});
 		
 		$('.city').on('click','.province',function(event) {
 			ProvinceID = $('#default').attr('value');
-			$.post('/MVC/ajax/get_district', {'ID': ProvinceID}, function(data) {
+			$.post('ajax/get_district', {'ID': ProvinceID}, function(data) {
 				$('.district').html(data);
 			});
 		});
 		$('.district').on('click','.listdist',function(event) {
 			DistrictID = $('#districtvalue').attr('value');
-			$.post('/MVC/ajax/get_ward', {'ID': DistrictID}, function(data) {
+			$.post('ajax/get_ward', {'ID': DistrictID}, function(data) {
 				$('.ward').html(data);
 			});
 			listprovince = $('#default').html()
@@ -592,6 +593,6 @@
 	var run = setInterval(runtimeDestroySession,1000)
 	function runtimeDestroySession(){
 		time -= 1000;
-		if (time==0) {clearInterval(run);window.location = "/MVC/cart/des_session"}
+		if (time==0) {clearInterval(run);window.location = "cart/des_session"}
 	}
 </script>

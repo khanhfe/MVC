@@ -139,7 +139,7 @@ label{
     position: absolute;
     left: 0;
     top: 0;
-    background: transparent url('/MVC/public/img/check.png') ;
+    background: transparent url('/imobile/public/img/check.png') ;
     background-size: 23px 20px;
     z-index: 2;
 }

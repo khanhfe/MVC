@@ -99,17 +99,43 @@ class ProductModel extends DB
 		}
 		return $color;
 	}
-	public function AddCustomer($fullname,$gender,$phonenumber,$email,$address,$note,$pay,$date)
+	public function AddCustomer($fullname,$gender,$phonenumber,$email,$address,$note,$pay,$time)
 	{
-		$sql = "INSERT INTO customer VALUES (null,'$fullname','$gender','$phonenumber','$email','$address','$note','$pay','$date','0')";
+		$sql = "INSERT INTO customer VALUES (null,'$fullname','$gender','$phonenumber','$email','$address','$note','$pay','$time','1')";
 		$query = mysqli_query($this->con, $sql);
 		return $query;
 	}
-	public function AddOrder($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$date,$time,$phonenumber,$createtime)
+	public function AddOrder($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$time,$phonenumber)
 	{
-		$sql = "INSERT INTO orders VALUES (null,'$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$createtime'))";
+		$sql = "INSERT INTO orders VALUES (null,'$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$time'))";
 		$query = mysqli_query($this->con, $sql);
 		return $query;
+	}
+	public function CancelOrder($phonenumber,$time)
+	{
+		$sql = "UPDATE customer SET Status = 0 WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$time'";
+		$query = mysqli_query($this->con, $sql);
+		return $query;
+	}
+	public function InfoCustomer($phonenumber)
+	{
+		$sql = "SELECT * FROM customer WHERE customer.PhoneNumber = '$phonenumber'";
+		$query = mysqli_query($this->con,$sql);
+		$result = array();
+		while($row = mysqli_fetch_array($query)){
+			$result[] = $row;
+		}
+		return $result;
+	}
+	public function ShoppingHistory($phonenumber)
+	{
+		$sql = "SELECT * FROM orders JOIN customer ON orders.CustomID = customer.CustomID WHERE customer.PhoneNumber = '$phonenumber'";
+		$query = mysqli_query($this->con,$sql);
+		$result = array();
+		while($row = mysqli_fetch_array($query)){
+			$result[] = $row;
+		}
+		return $result;
 	}
 }
 ?>

@@ -1,0 +1,128 @@
+body{
+	background: #fff
+}section{
+	margin-top: 55px;
+}
+.wrapper {
+    width: 100%;
+    min-width: 1200px;
+    max-width: 100%;
+}.container {
+    width: 1200px;
+    margin: 0 auto;
+}.left {
+    float: left;
+    width: 23%;
+    padding: 25px 0;
+}.left>a {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    padding: 10px;
+    height: 22px;
+    line-height: 22px;
+}.left>a.active {
+    background-color: #e8f0ff;
+    color: #288ad6;
+    font-weight: bold;
+    border-radius: 0 20px 20px 0;
+}.left>a:first-child::before {
+    background-image: url('/imobile/public/img/icon/icon-list.png');
+}.left>a::before {
+    content: '';
+    width: 25px;
+    height: 22px;
+    display: inline-block;
+    margin-right: 7px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: auto 22px;
+}.right {
+    float: right;
+    width: 75%;
+    padding: 25px 0;
+}.user {
+    font-size: 15px;
+    margin-bottom: 20px;
+}.user>a {
+    float: right;
+    color: #288ad6;
+}.user>a.feed-back {
+    cursor: pointer;
+}.user>a.about-s {
+    padding: 0 20px;
+}.user>a.logout-h {
+    font-weight: 600;
+}img {
+    background: none;
+    height: auto;
+}.cate .list {
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}.cate .list>b {
+    font-size: 20px;
+    padding-bottom: 10px;
+    display: block;
+}.cate .list table {
+    width: 100%;
+    word-break: break-word;
+}.cate .list table th {
+    color: #818181;
+    padding: 10px 5px;
+    font-weight: normal;
+    text-align: left;
+}.cate .list table td {
+    border-top: 1px solid #e3e3e3;
+    padding: 10px 5px;
+    vertical-align: top;
+    color: #818181;
+    position: relative;
+}.cate .list table td>a {
+    width: 50px;
+    position: absolute;
+    left: 0;
+    top: 13px;
+}.cate .list table td:first-child {
+    width: 12%;
+    vertical-align: middle;
+}.cate .list table td:nth-child(2) {
+    width: 47%;
+}.cate .list table td:first-child>a {
+    width: auto;
+    position: relative;
+    color: #288ad6;
+    top: 0;
+}.cate .list table td>a>img {
+    display: block;
+    max-width: 100%;
+}.cate .list table td>div {
+    margin-left: 55px;
+    min-height: 50px;
+}.cate .list table td>div>* {
+    display: block;
+    margin-bottom: 3px;
+}.cate .list table td>div>a {
+    color: #333;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}.cate .list table td>div>div>a {
+    display: inline-block;
+    vertical-align: top;
+    color: #288ad6;
+    font-size: 13px;
+    padding-right: 20px;
+}.cate .list table td>b {
+    font-weight: normal;
+    color: #d0021b;
+}.cate .list table td i.fail {
+    color: #d0021b;
+}
+.cate .list table td i {
+    font-style: normal;
+    display: block;
+}

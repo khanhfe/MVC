@@ -26,7 +26,7 @@
 				</div>
 			</form>
 			<div class="note">Hiện tại hệ thống chưa có chức năng đăng nhập và tạo tài khoản dành cho người dùng!
-				<a href="../MVC" title="">Quay lại trang chủ</a></div>
+				<a href="/imobile">Quay lại trang chủ</a></div>
 		</div>
 	</div>
 </div>

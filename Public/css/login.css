@@ -20,7 +20,7 @@ body{
 	background:#fff;
 	border-radius: 15px;
 	box-shadow: 5px 3px 10px 5px #00A88A;
-	background-image:url("/MVC/public/img/background.jpg");
+	background-image:url("/imobile/public/img/background.jpg");
 	background-size:cover;
 }
 .left{

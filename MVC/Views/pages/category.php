@@ -89,11 +89,11 @@
 		// brand = $('.brand a').length;
 		// $('.brand').css('grid-template-columns', 'repeat('+brand+',1fr)');
 		$('.criteria').click(function(event) {
-			$('.sort').find('div').slideToggle(200)
+			$('.sort').find('div').slideToggle(250)
 		});
 		
 		$('.sort a').click(function(event) {
-			$('.sort').find('div').slideToggle(200)
+			$('.sort').find('div').slideToggle(250)
 			$('.sort').find('div a.check').removeClass('check')
 			$(this).addClass('check')
 			sort = $(this).attr('data-id')
@@ -110,7 +110,7 @@
 		}
 		function timing(){
 			$('.overlay').css('display','block')
-			setTimeout(delay,300)
+			setTimeout(delay,200)
 		}
 	});
 </script>
@@ -164,7 +164,7 @@
 			}
 		});
 		url = window.location.pathname
-		str = url.slice(5)
+		str = url.slice(9)
 		str = '.'+str
 		document.querySelector(str).classList.add('actmenu')
 	});

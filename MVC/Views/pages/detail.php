@@ -1,16 +1,16 @@
 <?php $product = $data["product"];?>
-<link rel="stylesheet" href="../../public/css/detail.css">
+<link rel="stylesheet" href="public/css/detail.css">
 <div class="container">
 	<ul class="category">
-		<li><a href="../../">Trang chủ </a><span>›</span></li>
-		<li><a href="../../<?php echo$product['folder'] ?>"><?php echo $product['GroupProduct']; ?></a><span>›</span></li>	
-		<li><a href="/"><?php echo $product['Brand']; ?></a></li>	
+		<li><a href="/imobile">Trang chủ </a><span>›</span></li>
+		<li><a href="/imobile/<?php echo$product['folder'] ?>"><?php echo $product['GroupProduct']; ?></a><span>›</span></li>	
+		<li><a href="#"><?php echo $product['Brand']; ?></a></li>	
 	</ul>
 	<h1>Điện thoại <?php if(isset($product['ProductName'])) echo $product['ProductName']; ?></h1>
 	<div class="row"></div>
 	<div class="product" id="product">
 		<div class="image">
-			<img src="../../public/<?php echo $product['ProductImage'] ?>" width="400">	
+			<img src="public/<?php echo $product['ProductImage'] ?>" width="400">	
 		</div>
 		<div class="price_sale">
 			<div class="price">
@@ -77,7 +77,7 @@
 				</div>
 			</div>
 			<div class="area_order btn-buy">
-				<a id="mua-ngay" href="/MVC/cart/add_to_cart/<?php echo $product['ProductId'] ?>" class="buy_now"><b>Mua ngay</b><span>Giao tận nơi hoặc nhận tại siêu thị</span></a>
+				<a id="mua-ngay" href="cart/add_to_cart/<?php echo $product['ProductId'] ?>" class="buy_now"><b>Mua ngay</b><span>Giao tận nơi hoặc nhận tại siêu thị</span></a>
 				<a id="tra-gop" class="buy_repay " href=""><b>Mua trả góp 0%</b><span>Thủ tục đơn giản</span></a>
 				<a class="buy_repay s " href=""><b>Trả góp  qua thẻ</b><span>Visa, Master, JCB</span></a>
 			</div>

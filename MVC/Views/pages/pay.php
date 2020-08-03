@@ -1,3 +1,4 @@
+<?php echo$_POST['time'];$_SESSION['time'] = $_POST['time'];$_SESSION['phonenumber'] = $_POST['PhoneNumber'] ?>
 <section>
 	<div class="container">
 		<div class="picsuccess">
@@ -10,7 +11,7 @@
     	</div>
     	<div class="titlebill">Thông tin đặt hàng:</div>
     	<div class="infoorder">
-			<div>Người nhận: <b><?php echo $_POST['FullName']; ?>,<?php echo $_POST['PhoneNumber']; ?></b></div>
+			<div>Người nhận: <b><?php echo $_POST['FullName']; ?>, <?php echo $_POST['PhoneNumber']; ?></b></div>
 			<div>Địa chỉ nhận hàng: <b><?php if($_POST['BillingAddress']==null){echo "Các siêu thị thuộc hệ thống trong khu vực: ";}; echo $_POST['BillingAddress'].", ".$_POST['ward'].", ".$_POST['district'].", ".$_POST['province']; ?></b></div>
 			<div>Thời gian nhận hàng dự kiến: 
 				<b> Trước <?php $currenttime = date('l, yy-m-d H:i:s');
@@ -42,22 +43,22 @@
 		                <span>
 		                    Thanh toán thẻ
 		                </span>
-		                <img src="/MVC/public/img/icon/ATM2020.png" alt="Thanh toán qua thẻ ATM" width="30">
+		                <img src="public/img/icon/ATM2020.png" alt="Thanh toán qua thẻ ATM" width="30">
 		            </div>
 		            <p>(Có Internet Banking)</p>
 		        </a>
 		        <a href="javascript:void(0)" class="visa">
 		            <div>
 		                <span>Thanh toán thẻ </span>
-		                <img src="/MVC/public/img/icon/Visa2020.png" alt="Thanh toán qua thẻ Visa, Master Card">
-		                <img src="/MVC/public/img/icon/Master2020.png" alt="Thanh toán qua thẻ Visa, Master Card">
-		                <img src="/MVC/public/img/icon/JCB2020.png" alt="Thanh toán qua thẻ Visa, Master Card">
+		                <img src="public/img/icon/Visa2020.png" alt="Thanh toán qua thẻ Visa, Master Card">
+		                <img src="public/img/icon/Master2020.png" alt="Thanh toán qua thẻ Visa, Master Card">
+		                <img src="public/img/icon/JCB2020.png" alt="Thanh toán qua thẻ Visa, Master Card">
 		            </div>
 		        </a>
 		        <a href="javascript:void(0)" class="qr-code" >
 		            <div>
 		                <span>Thanh toán qua QR Code</span>
-		                <img src="/MVC/public/img/icon/logo-vnp@2x.png" alt="Thanh toán qua Qr-Code Vnpay" height="36">
+		                <img src="public/img/icon/logo-vnp@2x.png" alt="Thanh toán qua Qr-Code Vnpay" height="36">
 		            </div>
 		        </a>
 		    </div>
@@ -76,13 +77,13 @@
     		<?php $i=0; foreach($_SESSION['cart'] as $cart) { ?>
 			<li>
 				<div class="colimg">
-					<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>">
-						<img src="<?php echo '/MVC/public/'.$cart['image'] ?>">
+					<a href="<?php echo $cart['folder'].'/detail/'.$cart['id'] ?>">
+						<img src="<?php echo 'public/'.$cart['image'] ?>">
 					</a>
 				</div>
 				<div class="colinfo">
     				<strong><?php echo number_format($cart['pricecurrent'],0,"","."); ?>₫</strong>
-    				<a href="<?php echo '/MVC/'.$cart['folder'].'/detail/'.$cart['id'] ?>"><?php echo $cart['name']; ?></a>
+    				<a href="<?php echo $cart['folder'].'/detail/'.$cart['id'] ?>"><?php echo $cart['name']; ?></a>
     				<div class="onecolor">
                         <span>Màu:</span> <?php echo $cart['color'] = $_POST['color'][$i]; ?>                         
                     </div>
@@ -100,7 +101,7 @@
 			</li>
 			<?php } ?>
 		</ul>
-    	<a href="add_database.php" class="buyother">Về trang chủ</a>
+    	<a href="pay/desSession" class="buyother">Về trang chủ</a>
 	</div>
 </section>
 <div class="popup" id="popup">
@@ -109,7 +110,7 @@
 		<p>Bạn có muốn hủy đơn hàng này ?</p>
 		<p class="p1">Lưu ý: quà khuyến mãi có thể thay đổi theo thời điểm đặt hàng.</p>
 		<a class="close" href="javascript:close()">Đóng</a>
-		<a class="confirm" href="javascript:Success()">xác nhận hủy</a>
+		<a class="confirm" href="javascript:Confirm()">xác nhận hủy</a>
 	</div>
 </div>
 <div class="popup" id="popup-success">
@@ -136,7 +137,7 @@
 	function close(){
 		document.getElementById('popup').style.display = 'none'	
 	}
-	function Success(){
+	function Confirm(){
 		close();
 		document.getElementById('popup-success').style.display = 'flex'
 		var realtime = document.getElementById('time').innerHTML;
@@ -145,10 +146,10 @@
 		function runtime(){
 			realtime-=1;
 			document.getElementById('time').innerHTML = realtime;
-			if (realtime==0) { window.location = "/mvc/pay/cancel"; clearInterval(pause) }
+			if (realtime==0) { window.location = "pay/cancel"; clearInterval(pause) }
 		}
 	}
 	function Redirect(){
-		window.location="/mvc/pay/cancel";
+		window.location="pay/cancel";
 	}
 </script>
