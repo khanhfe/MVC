@@ -7,22 +7,26 @@ class pay extends Controller
 		if (!isset($_POST['submit'])) {
 			header('location:/MVC/');
 		}else{
-			$_SESSION['quantity'] = $_POST['amount'];
-			$_SESSION['color'] = $_POST['color'];
-	 		$_SESSION['phonenumber'] = $_POST['PhoneNumber'];
-			$_SESSION['note'] = $_POST['serviceother'];
-			$_SESSION['gender'] = $_POST['gender'];
-			$_SESSION['fullname'] = $_POST['FullName'];
-			$_SESSION['email'] = '';
-			$_SESSION['pay'] = $_POST['pay'];
-			if($_POST['BillingAddress']!=null){
-				$_SESSION['address'] = $_POST['BillingAddress'].", ".$_POST['ward'].", ".$_POST['district'].", ".$_POST['province'];
-			}else{
-				$_SESSION['address'] = $_POST['district'].", ".$_POST['province'];
-			}
+			$_SESSION['infoOrder'] = array(
+				'fullname' => $_POST['FullName'],
+				'gender' => $_POST['gender'] == 'anh' ? 'Nam' : 'Nữ',
+				'phonenumber' => $_POST['PhoneNumber'],
+				'email' => '',
+				'address' => $_POST['BillingAddress'].", ".$_POST['ward'].", ".$_POST['district'].", ".$_POST['province'],
+				'pay' => $_POST['pay'],
+				'date' => date('H:i:s, yy-m-d ')
+				''
+			);
 			$this->view("master-2",[
-				"page" => "pay"
+				"page" => "pay",
+				"infoOrder" => $_SESSION['infoOrder']
 			]);
+			$this->model("ProductModel")->AddCustomer($_POST['FullName'],$_SESSION['infoOrder']['gender'],$_POST['PhoneNumber'],'',$_SESSION['infoOrder']['address'],'',$_POST['pay'],$_SESSION['infoOrder']['date'],0);
+			$i=0;
+			foreach ($_SESSION['cart'] as $order) {
+				$this->model("ProductModel")->AddOrder($oder['name'],$oder['image'],$oder['pricecurrent'],$oder['pricepromo'],$_POST['color'][$i],$_POST['amount'][$i],$_POST['pay'],$_SESSION['infoOrder']['date']);
+				$i++;
+			}
 		}
 	}
 	public function cancel()
