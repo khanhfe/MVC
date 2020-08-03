@@ -99,5 +99,17 @@ class ProductModel extends DB
 		}
 		return $color;
 	}
+	public function AddCustomer($fullname,$gender,$phonenumber,$email,$address,$note,$pay,$date)
+	{
+		$sql = "INSERT INTO customer VALUES (null,'$fullname','$gender','$phonenumber','$email','$address','$note','$pay','$date','0')";
+		$query = mysqli_query($this->con, $sql);
+		return $query;
+	}
+	public function AddOrder($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$date,$time,$phonenumber,$createtime)
+	{
+		$sql = "INSERT INTO orders VALUES (null,'$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$createtime'))";
+		$query = mysqli_query($this->con, $sql);
+		return $query;
+	}
 }
 ?>
