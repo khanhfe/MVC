@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Đăng nhập vào hệ thống iMobile.com</title>
+	<link href="public/img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="public/css/login.css">
 </head>
 <body>
