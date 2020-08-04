@@ -14,16 +14,16 @@ class ajax extends Controller
 		foreach ($result as $value) {
 			if($value['PricePromo']==0){
 				echo '<li>
-					<a href="http://localhost:8080/MVC/'.$value["folder"].'/detail/'.$value["ProductId"].'">
-						<img src="http://localhost:8080/MVC/public/'.$value["ProductImage"].'">
+					<a href="'.$value["folder"].'/detail/'.$value["ProductId"].'">
+						<img src="public/'.$value["ProductImage"].'">
 						<h3>'.$value["ProductName"].'</h3>
 						<span class="price">'.number_format($value['PriceCurrent'],0,"",".").'₫</span>
 					</a>
 				</li>';
 			}else{
 				echo '<li>
-					<a href="http://localhost:8080/MVC/'.$value["folder"].'/detail/'.$value["ProductId"].'">
-						<img src="http://localhost:8080/MVC/public/'.$value["ProductImage"].'">
+					<a href="'.$value["folder"].'/detail/'.$value["ProductId"].'">
+						<img src="public/'.$value["ProductImage"].'">
 						<h3>'.$value["ProductName"].'</h3>
 						<span class="price">'.number_format($value['PricePromo'],0,"",".").'₫</span>
 						<cite style="font-style: normal; text-decoration: line-through">'.number_format($value['PriceCurrent'],0,"",".").'₫</cite>
