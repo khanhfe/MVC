@@ -19,7 +19,6 @@ class history extends Controller
     	$phonenumber = $_POST['txtPhoneNumber'];
     	$this->view("master-2",[
 			"page" => "result",
-			"info" => $this->model("ProductModel")->InfoCustomer($phonenumber),
 			"orders" => $this->model("ProductModel")->ShoppingHistory($phonenumber)
 		]);
     }

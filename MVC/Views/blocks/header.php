@@ -3,7 +3,7 @@
 		<a href="/imobile" title="Về trang chủ iMobbile.com" class="logo">
 			<i class="icon-logo"></i>
 		</a>
-		<form id="search-site" action="/search" method="post" accept-charset="utf-8" autocomplete="off">
+		<form id="search-site" action="/imobile/search" method="post" accept-charset="utf-8" autocomplete="off">
 			<input type="text" name="key" class="topinput" maxlength="50" placeholder="Bạn tìm gì..." id="search-keyword">
 			<button class="btntop" type="submit" onclick="return validate()">
 				<i class="icon-topsearch"></i>

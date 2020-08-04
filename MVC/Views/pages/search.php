@@ -32,7 +32,7 @@
 	<h1>Rất tiếc, iMobile.com không tìm thấy kết quả nào phù hợp với từ khóa</h1>
 </div>
 <div class="noresultsuggestion">
-    <img src="/MVC/public/img/NoResult1x.jpg">
+    <img src="/imobile/public/img/NoResult1x.jpg">
     <h3>Để tìm được kết quả chính xác hơn, bạn vui lòng:</h3>
     <ul>
         <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
@@ -48,8 +48,8 @@
 <ul class="listsearch homeproduct">
 	<?php foreach ($result as $value) { ?>
 	<li class="item">
-		<a href="<?php echo 'http://localhost:8080/MVC/'.$value['folder'].'/detail/'.$value['ProductId'] ?>">
-			<img src="http://localhost:8080/MVC/public/<?php echo $value['ProductImage'];?>" >
+		<a href="<?php echo $value['folder'].'/detail/'.$value['ProductId'] ?>">
+			<img src="/imobile/public/<?php echo $value['ProductImage'];?>" >
 			<h3><?php echo $value['ProductName']; ?></h3>
 			<div class="price">
 				<strong><?php if($value['PricePromo']==0) echo number_format($value['PriceCurrent'],0,"","."); else echo number_format($value['PricePromo'],0,"","."); ?>₫</strong>

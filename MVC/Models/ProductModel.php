@@ -117,19 +117,19 @@ class ProductModel extends DB
 		$query = mysqli_query($this->con, $sql);
 		return $query;
 	}
-	public function InfoCustomer($phonenumber)
-	{
-		$sql = "SELECT * FROM customer WHERE customer.PhoneNumber = '$phonenumber'";
-		$query = mysqli_query($this->con,$sql);
-		$result = array();
-		while($row = mysqli_fetch_array($query)){
-			$result[] = $row;
-		}
-		return $result;
-	}
+	// public function InfoCustomer($phonenumber)
+	// {
+	// 	$sql = "SELECT * FROM customer WHERE customer.PhoneNumber = '$phonenumber'";
+	// 	$query = mysqli_query($this->con,$sql);
+	// 	$result = array();
+	// 	while($row = mysqli_fetch_array($query)){
+	// 		$result[] = $row;
+	// 	}
+	// 	return $result;
+	// }
 	public function ShoppingHistory($phonenumber)
 	{
-		$sql = "SELECT * FROM orders JOIN customer ON orders.CustomID = customer.CustomID WHERE customer.PhoneNumber = '$phonenumber'";
+		$sql = "SELECT *,COUNT(orders.CustomID) FROM orders JOIN customer ON orders.CustomID = customer.CustomID WHERE customer.PhoneNumber = '$phonenumber' GROUP BY orders.CustomID";
 		$query = mysqli_query($this->con,$sql);
 		$result = array();
 		while($row = mysqli_fetch_array($query)){

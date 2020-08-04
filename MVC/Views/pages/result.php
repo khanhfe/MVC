@@ -5,8 +5,8 @@
         </div>
         <div class="right">
             <div class="user" data-customer="1058356574">
-                Chào <?php echo $data['info'][0]['Gender'] == 'Nam' ? 'anh' : 'chị'; ?>
-                <b><?php echo $data['info'][0]['FullName']; ?></b> - <b><?php echo $data['info'][0]['PhoneNumber']; ?></b>
+                Chào <?php echo $data['orders'][0]['Gender'] == 'Nam' ? 'anh' : 'chị'; ?>
+                <b><?php echo $data['orders'][0]['FullName']; ?></b> - <b>0<?php echo $data['orders'][0]['PhoneNumber']; ?></b>
                 <a href="history" class="logout-h">Thoát tài khoản</a>
                 <a class="about-s">|</a>
                 <a class="feed-back">
@@ -34,28 +34,32 @@
                 <table cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
-            <th>Mã đơn hàng</th>
-            <th>Sản phẩm</th>
-            <th>Giá</th>
-            <th>Ngày đặt mua</th>
-            <th>Trạng thái</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Ngày đặt mua</th>
+                            <th>Trạng thái</th>
                         </tr>
                         <?php foreach ($data['orders'] as $order) { ?>
-                        <tr class="" data-id="<?php echo $order['OrderID'] ?>">
+                        <tr class="" data-id="<?php echo $order['CustomID'] ?>">
                             <td>
-                                <a href="">#<?php echo $order['OrderID'] ?></a>
+                                <a href="">#<?php echo $order['CustomID'] ?></a>
                             </td>
                             <td>
                                 <a href=""><img src="public/<?php echo $order['Image'] ?>"></a>
                                 <div>
-                                    <a href=""><?php echo $order['Product']; ?></a>
+                                    <a href="">
+                                        <?php echo $order['Product']; 
+                                            if($order['COUNT(orders.CustomID)']>1){?> và <b><?php echo $order['COUNT(orders.CustomID)']-1; ?> s.phẩm</b> khác <?php } ?> 
+                                    </a>
                                     <div class="link">
                                         <a href="">Xem chi tiết</a>
+                                        <a href="javascript:OrderDelete"><?php echo $order['Status']==1?"Hủy đơn hàng":""; ?></a>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <b><?php echo number_format($order['PriceUnit'],0,"",".") ?>₫</b>
+                                <b><?php echo $order['PricePromote']==0?number_format($order['PriceUnit'],0,"","."):number_format($order['PricePromote'],0,"",".") ?>₫</b>
                             </td>
                             <td><span><?php echo $order['OrderDate']; ?></span></td>
                             <td>
@@ -70,5 +74,6 @@
                 </table>
             </div>
         </div>
+        <div class="clr"></div>
     </div>
 </section>

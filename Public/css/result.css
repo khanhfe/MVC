@@ -3,6 +3,9 @@ body{
 }section{
 	margin-top: 55px;
 }
+.clr{
+    clear: both
+}
 .wrapper {
     width: 100%;
     min-width: 1200px;
@@ -15,7 +18,6 @@ body{
     width: 23%;
     padding: 25px 0;
 }.left>a {
-    display: block;
     margin-bottom: 10px;
     color: #333;
     padding: 10px;
