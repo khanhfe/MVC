@@ -22,13 +22,17 @@ class tablet extends Controller
         };
         if ($id==0) {
             $this->view("404");
-        }else{
-        	$this->view("master-1",
-        	[
-        		"page" => "detail",
-        		"product" => $this->model->ViewProduct($id),
-        		"categ" => "detail-tab"
-        	]);
+        }else{ 
+            if ($this->model->ViewProduct($id)==null) {
+                header('location:/imobile/');
+            }else{
+                $this->view("master-1",
+                [
+                    "page" => "detail",
+                    "product" => $this->model->ViewProduct($id),
+                    "categ" => "detail-tab"
+                ]);
+            }
         }
     }
     public function err(){

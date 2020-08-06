@@ -117,25 +117,31 @@ class ProductModel extends DB
 		$query = mysqli_query($this->con, $sql);
 		return $query;
 	}
-	// public function InfoCustomer($phonenumber)
-	// {
-	// 	$sql = "SELECT * FROM customer WHERE customer.PhoneNumber = '$phonenumber'";
-	// 	$query = mysqli_query($this->con,$sql);
-	// 	$result = array();
-	// 	while($row = mysqli_fetch_array($query)){
-	// 		$result[] = $row;
-	// 	}
-	// 	return $result;
-	// }
 	public function ShoppingHistory($phonenumber)
 	{
-		$sql = "SELECT *,COUNT(orders.CustomID) FROM orders JOIN customer ON orders.CustomID = customer.CustomID WHERE customer.PhoneNumber = '$phonenumber' GROUP BY orders.CustomID";
+		$sql = "SELECT *,COUNT(orders.CustomID) FROM orders JOIN customer ON orders.CustomID = customer.CustomID WHERE customer.PhoneNumber = '$phonenumber' GROUP BY orders.CustomID DESC";
 		$query = mysqli_query($this->con,$sql);
 		$result = array();
 		while($row = mysqli_fetch_array($query)){
 			$result[] = $row;
 		}
 		return $result;
+	}
+	public function ViewOrder($id,$phone)
+	{
+		$sql = "SELECT * FROM orders JOIN customer ON orders.CustomID = customer.CustomID WHERE orders.CustomID = '$id' AND customer.PhoneNumber = '$phone'";
+		$query = mysqli_query($this->con,$sql);
+		$result = array();
+		while($row = mysqli_fetch_array($query)){
+			$result[] = $row;
+		}
+		return $result;
+	}
+	public function DelOrder($reason,$id,$phone)
+	{
+		$sql = "UPDATE customer SET Status = 0, ReasonCancel = '$reason' WHERE customer.CustomID = '$id'AND customer.PhoneNumber = '$phone'";
+		$query = mysqli_query($this->con, $sql);
+		return $query;
 	}
 }
 ?>

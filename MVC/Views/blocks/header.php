@@ -22,9 +22,6 @@
 	        <a href="/imobile/tablet" class="tablet" title="Máy tính bảng, tablet">
 	           	<i class="icon-tablet"></i>Tablet
 	        </a>
-	        <a href="/imobile/news" class="news" title="24h công nghệ">
-                <i class="icon-news"></i>Công Nghệ
-            </a>
             <a href="/imobile/cart" class="cart" title="Giỏ hàng">
                 <i class="icon-cart"></i>Giỏ hàng
             </a>

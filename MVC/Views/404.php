@@ -13,7 +13,7 @@
 		    background-color: #f1c40f;
 		}
 		[class^="iconerror-"], [class*="iconerror-"] {
-		    background: transparent url(/MVC/public/img/icon/icon-404.png);
+		    background: transparent url('/imobile/public/img/icon/icon-404.png');
 		    background-repeat: no-repeat;
 		    display: inline-block;
 		    height: 30px;
@@ -92,20 +92,20 @@
 <body>
 	<div class="errorswrap">
         <h1>Rất tiếc, trang bạn tìm kiếm không tồn tại</h1>
-        <form id="search-site" action="/MVC/search" method="post" accept-charset="utf-8" autocomplete="off">
+        <form id="search-site" action="/imobile/search" method="post" accept-charset="utf-8" autocomplete="off">
             <input class="topinput" type="text" id="search-keyword" name="key" placeholder="Tìm kiếm" >
             <button class="btntop" type="submit" onclick="return validate()"><i class="iconerror-topsearch"></i></button>
         </form>
         <script type="text/javascript">function validate(){if(document.getElementById("search-keyword").value==""){return false}else return true}</script>
         <p class="or">Hoặc</p>
         <div class="iconlink">
-            <a href="/MVC" style="float: left">
+            <a href="/imobile" style="float: left">
                 <div class="error">
                     <i class="iconerror-home"></i>
                     <span>Về trang chủ</span>
                 </div>
             </a>
-            <a href="/MVC" style="float: right">
+            <a href="/imobile" style="float: right">
                 <div class="error">
                     <i class="iconerror-contact"></i>
                     <span>Báo lỗi</span>

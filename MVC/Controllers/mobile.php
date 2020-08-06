@@ -25,7 +25,7 @@ class mobile extends Controller
             $this->view("404");
         }else {
             if ($this->model->ViewProduct($id)==null) {
-                header('location:/MVC/');
+                header('location:/imobile/');
             }else{
                 $this->view("master-1",
                 [

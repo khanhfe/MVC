@@ -1,0 +1,189 @@
+body{
+	background: #fff
+}section{
+	margin-top: 55px;
+}
+.clr{
+    clear: both
+}
+.wrapper {
+    width: 100%;
+    min-width: 1200px;
+    max-width: 100%;
+}.container {
+    width: 1200px;
+    margin: 0 auto;
+}.left {
+    float: left;
+    width: 23%;
+    padding: 25px 0;
+}.left>a {
+    margin-bottom: 10px;
+    color: #333;
+    padding: 10px;
+    height: 22px;
+    line-height: 22px;
+}.left>a.active {
+    background-color: #e8f0ff;
+    color: #288ad6;
+    font-weight: bold;
+    border-radius: 0 20px 20px 0;
+}.left>a:first-child::before {
+    background-image: url('/imobile/public/img/icon/icon-list.png');
+}.left>a::before {
+    content: '';
+    width: 25px;
+    height: 22px;
+    display: inline-block;
+    margin-right: 7px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: auto 22px;
+}.right {
+    float: right;
+    width: 75%;
+    padding: 25px 0;
+}.user {
+    font-size: 15px;
+    margin-bottom: 20px;
+}.user>a {
+    float: right;
+    color: #288ad6;
+}.user>a.feed-back {
+    cursor: pointer;
+}.user>a.about-s {
+    padding: 0 20px;
+}.user>a.logout-h {
+    font-weight: 600;
+}img {
+    background: none;
+    height: auto;
+}.detail {
+    padding: 25px 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}.detail .title {
+    padding-bottom: 10px;
+    display: block;
+    font-size: 20px;
+    font-weight: normal;
+}.detail .title>span {
+    float: right;
+    font-size: 14px;
+    color: #666;
+}.detail .title>span>i{
+    font-style: normal;
+    color: #333;
+}.detail .title>span>i.fail{
+    color: #d0021b;
+}.detail .title>p {
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}.detail .item {
+    overflow: hidden;
+    border-top: 1px solid #e6e6e6;
+    padding: 15px 10px 10px;
+}.fl {
+    float: left;
+}.detail .item>a.fl {
+    width: 10%;
+    margin: 3px 2% 0 0;
+}.detail .item>a.fl>img {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+}.detail .item>div.fl {
+    width: 70%;
+}.detail .item>div.fl>* {
+    display: block;
+    margin-bottom: 5px;
+}.detail .item>div.fl>a {
+    max-height: 36px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+}.detail .item>div.fl>i {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 100px;
+    margin: 7px 10px 0 0;
+    font-style: normal;
+    font-size: 13px;
+    color: #666;
+}.detail .item>div.fl>i>b {
+    color: #333;
+    font-weight: normal;
+}.detail .item>div.fr>* {
+    display: block;
+    text-align: right;
+    margin-bottom: 5px;
+    font-size: 14px;
+}.detail .item>div.fr>b {
+    color: #f30c28;
+    font-weight: normal;
+}.detail .item>div.fr>em {
+    font-style: normal;
+    text-decoration: line-through;
+}.detail .sum {
+    padding: 15px 10px 10px 500px;
+    border-bottom: 2px solid #e6e6e6;
+    border-top: 1px solid #d6dfe7;
+}.detail .sum>span {
+    display: block;
+    margin-bottom: 7px;
+}.detail .sum>span>*:first-child {
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    float: none;
+}.detail .sum>span>*:not(strong) {
+    float: right;
+}.detail .sum>span>i {
+    font-style: normal;
+}.detail .sum>span>b {
+    font-size: 15px;
+    color: #f30c28;
+}.detail .info {
+    padding: 15px 0 3px 0;
+    overflow: hidden;
+}.detail .info>* {
+    display: block;
+    padding: 0 10px;
+    margin-bottom: 7px;
+}.detail .info>span {
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.5;
+}.detail .info>span::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #d8d8d8;
+    left: 10px;
+    top: 6px;
+    position: absolute;
+}.detail .info>span.receiver {
+    display: inline-block;
+}.pay {
+    text-align: center;
+    margin-top: 20px;
+}.pay>a {
+    background: #288ad6;
+    border-radius: 3px;
+    display: inline-block;
+    height: 46px;
+    width: 48%;
+    line-height: 46px;
+    color: #fff;
+    font-size: 15px;
+    vertical-align: top;
+    margin-bottom: 4px;
+}.pay>a.btn-cancel {
+    background: #fff;
+    border: 1px solid #288ad6;
+    height: 46px;
+    color: #288ad6;
+}

@@ -155,7 +155,7 @@ class ajax extends Controller
 		$ProvinceID = $_POST['ID'];
 		$district = $this->model("GetAddress")->district($ProvinceID);
 		foreach ($district as $value) {
-			echo '<div class="list listdist" value="'.$value["id"].'">'.$value["_name"].'</div>';
+			echo '<div class="list listdist" value="'.$value["id"].'">'.$value['_prefix']." ".$value["_name"].'</div>';
 		}
 	}
 	public function get_ward()
@@ -164,10 +164,10 @@ class ajax extends Controller
 		$ward = $this->model("GetAddress")->ward($DistrictID);
 		$street = $this->model("GetAddress")->street($DistrictID);
 		foreach ($ward as $value) {
-			echo '<div class="list listward" value="'.$value["id"].'">'.$value["_name"].'</div>';
+			echo '<div class="list listward" value="'.$value["id"].'">'.$value['_prefix']." ".$value["_name"].'</div>';
 		}
 		foreach ($street as $value) {
-			echo '<div class="list listward" value="'.$value["id"].'">'.$value["_name"].'</div>';
+			echo '<div class="list listward" value="'.$value["id"].'">'.$value['_prefix']." ".$value["_name"].'</div>';
 		}
 	}
 }

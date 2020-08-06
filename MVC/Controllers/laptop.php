@@ -23,12 +23,17 @@ class laptop extends Controller
         if ($id==0) {
             $this->view("404");
         }else{
-        	$this->view("master-1",
-        	[
-        		"page" => "detail",
-        		"product" => $this->model->ViewProduct($id),
-        		"categ" => "detail-lap"
-        	]);
+            if ($this->model->ViewProduct($id)==null) {
+                header('location:/imobile/');
+            }else{
+                $this->view("master-1",
+                [
+                    "page" => "detail",
+                    "product" => $this->model->ViewProduct($id),
+                    "categ" => "detail-lap"
+                ]);
+            }
+        	
         }
     }
     public function err(){

@@ -9,7 +9,7 @@
 				<img src="public/img/icon/account.jpg" height="45">
 			</div>
 			<div class="error"><?php if(isset($_SESSION['error'])) echo $_SESSION['error'];?></div>
-			<form action="check.php" method="post" >
+			<form action="" method="post" >
 				<div class="user">
 					<input class="input check" type="text" name="username" value="<?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?>" placeholder="Tài khoản">	
 				</div>
@@ -26,7 +26,8 @@
 				</div>
 			</form>
 			<div class="note">Hiện tại hệ thống chưa có chức năng đăng nhập và tạo tài khoản dành cho người dùng!
-				<a href="/imobile">Quay lại trang chủ</a></div>
+				<a href="/imobile">Quay lại trang chủ</a>
+			</div>
 		</div>
 	</div>
 </div>

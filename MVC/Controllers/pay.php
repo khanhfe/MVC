@@ -30,7 +30,7 @@ class pay extends Controller
 	}
 	public function cancel()
 	{
-		echo $this->model("ProductModel")->CancelOrder($_SESSION['phonenumber'],$_SESSION['time']) ;
+		$this->model("ProductModel")->CancelOrder($_SESSION['phonenumber'],$_SESSION['time']);
 		session_destroy();
 		header('location:/imobile');
 	}
