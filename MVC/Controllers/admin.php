@@ -40,5 +40,30 @@ class admin extends Controller
             ]);
         }
     }
+
+    public function update($parram)
+    {
+    	$id = $parram[0];
+    	$id = (int)$id;
+    	$status = $parram[1];
+    	if ($status == '1') {
+    		$status = "Giao hàng thành công";
+    	}else $status = "Đã hủy";
+
+    	$this->model->UpdateOrder($id,$status);
+    	$this->view("master-4",
+        [
+            "page" => "admin/detail-order",
+            "order" => $this->model->DetailOrder($id)
+        ]);
+    }
+
+    public function add()
+    {
+    	$this->view("master-4",
+    	[
+    		"page" => "admin/add-product"
+    	]);
+    }
 }
 ?>

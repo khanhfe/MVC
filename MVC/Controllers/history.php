@@ -71,19 +71,8 @@ class history extends Controller
     	if (isset($arr[0])) {
             $id = (int)$arr[0];
         };
-        $reason;
-        if ($arr[1]=='1') {
-        	$reason = "Đổi ý, không mua nữa";
-        }
-        if ($arr[1]=='2') {
-        	$reason = "Tìm thấy giá rẻ hơn ở chỗ khác";
-        }
-        if ($arr[1]=='3') {
-        	$reason = "Muốn thay đổi sản phẩm trong đơn hàng (màu sắc, số lượng,...)";
-        }else{
-        	$reason = $arr[1];
-        }
-        $this->model("ProductModel")->DelOrder($reason,$id,$_SESSION['phone']);
+        $reason = $arr[1];
+        $this->model("ProductModel")->DelOrder($reason,$id);
         $this->view("master-2",[
 			"page" => "history",
 			"orders" => $this->model("ProductModel")->ShoppingHistory($_SESSION['phone'])

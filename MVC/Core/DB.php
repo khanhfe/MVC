@@ -1,6 +1,6 @@
 <?php 
 
-class DB
+class db
 {
 	public $con;
 	protected $servername = "localhost";

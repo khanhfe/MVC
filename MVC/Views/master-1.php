@@ -17,7 +17,7 @@
 <body>
 	<?php require_once 'blocks/header.php'; ?>
 	<section>
-	<?php require_once 'pages/'.$data['page'].'.php'; ?>
+	<?php require_once 'pages/user/'.$data['page'].'.php'; ?>
 	</section>
 	<?php require_once 'blocks/footer.php'; ?>
 	<?php if ($data['page'] =='home') { ?>

@@ -1,5 +1,5 @@
 <?php 
-class GetAddress extends DB
+class GetAddress extends db
 {
 	
 	public function province()

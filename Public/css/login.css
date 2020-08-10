@@ -49,7 +49,9 @@ body{
 	font-weight: 100;
 }
 .error{
-	color: #f44336
+	color: #f44336;
+	font-weight: bolder;
+	margin-top: 2em;
 }
 .pass{
 	position: relative;

@@ -1,5 +1,5 @@
 <?php 
-require_once 'Core/App.php';
-require_once 'Core/Controller.php';
-require_once 'Core/DB.php';
+require_once 'core/app.php';
+require_once 'core/controller.php';
+require_once 'core/db.php';
 ?>

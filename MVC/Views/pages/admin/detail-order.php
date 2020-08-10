@@ -58,12 +58,28 @@
 					<li>Lý do hủy đơn hàng (nếu có):<?php echo "<i class='text-secondary'>".$data['order'][0]['ReasonCancel']."</i>" ?></li>
 					<li>Ghi chú đơn hàng: <?php echo $data['order'][0]['NoteCart']; ?></li>
 				</ul>
-					
+				
+				<div class="action">
+				<?php if($data['order'][0]['Status']=="Đang chờ giao hàng"){ ?>
+					<div>
+						<a href="/imobile/admin/update/<?php echo $data['order'][0]['CustomID'] ?>/0" class="btn btn-danger">Hủy đơn hàng</a>
+					</div>
+					<div>
+						<a href="/imobile/admin/update/<?php echo $data['order'][0]['CustomID'] ?>/1" class="btn btn-success">Xác nhận giao hàng thành công</a>
+					</div>
+				<?php } ?>
+					<div>
+						<a href="/imobile/admin" class="btn btn-primary">Quay lại Dashboard</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <style type="text/css" media="screen">
-	.info{
+	.action{
+		display: flex;
+		justify-content: space-evenly;
+		margin: 2rem 0;
 	}
 </style>

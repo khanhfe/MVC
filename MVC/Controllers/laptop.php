@@ -20,7 +20,7 @@ class laptop extends Controller
         if (isset($id[0])) {
             $id = (int)$id[0];
         };
-        if ($id==0) {
+        if ($id<=0) {
             $this->view("404");
         }else{
             if ($this->model->ViewProduct($id)==null) {
@@ -33,7 +33,6 @@ class laptop extends Controller
                     "categ" => "detail-lap"
                 ]);
             }
-        	
         }
     }
     public function err(){

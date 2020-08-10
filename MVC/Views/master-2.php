@@ -13,7 +13,7 @@
 </head>
 <body>
 	<?php require_once 'blocks/header.php'; ?>
-	<?php require_once 'pages/'.$data['page'].'.php'; ?>
+	<?php require_once 'pages/user/'.$data['page'].'.php'; ?>
 	<script src="public/js/searching.js"></script>
 </body>
 </html>

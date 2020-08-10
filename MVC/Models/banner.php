@@ -1,5 +1,5 @@
 <?php 
-class banner extends DB
+class banner extends db
 {
 	
 	public function ListAll()

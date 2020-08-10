@@ -44,5 +44,12 @@ class AdminModel extends db
 		}
 		return $result;	
 	}
+
+	public function UpdateOrder($id,$status)
+	{
+		$sql = "UPDATE customer SET Status = '$status' WHERE CustomID = '$id'";
+		$query = mysqli_query($this->con, $sql);
+		return $query;
+	}
 }
 ?>

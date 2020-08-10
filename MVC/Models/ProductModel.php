@@ -1,5 +1,5 @@
 <?php 
-class ProductModel extends DB
+class ProductModel extends db
 {
 	public function ProductCategory($group)
 	{
@@ -89,7 +89,7 @@ class ProductModel extends DB
 	}
 	public function GetColor($id)
 	{
-		$sql = "SELECT * FROM color_product WHERE ProductId = '$id'";
+		$sql = "SELECT * FROM color_product WHERE ProductId = '$id' AND Quantity>0";
 		$query = mysqli_query($this->con,$sql);
 		$color = array();
 		if($query) {
@@ -99,21 +99,21 @@ class ProductModel extends DB
 		}
 		return $color;
 	}
-	public function AddCustomer($fullname,$gender,$phonenumber,$email,$address,$note,$pay,$time)
+	public function AddCustomer($fullname,$gender,$phonenumber,$address,$note,$pay,$createtime,$deliverytime)
 	{
-		$sql = "INSERT INTO customer VALUES (null,'$fullname','$gender','$phonenumber','$email','$address','$note','$pay','$time','1')";
+		$sql = "INSERT INTO customer VALUES (null,'$fullname','$gender','$phonenumber','$address','$note','$pay','$createtime','$deliverytime','1','')";
 		$query = mysqli_query($this->con, $sql);
 		return $query;
 	}
-	public function AddOrder($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$time,$phonenumber)
+	public function AddOrder($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$createtime,$phonenumber)
 	{
-		$sql = "INSERT INTO orders VALUES (null,'$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$time'))";
+		$sql = "INSERT INTO orders VALUES (null,'$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$createtime',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$createtime'))";
 		$query = mysqli_query($this->con, $sql);
 		return $query;
 	}
 	public function CancelOrder($phonenumber,$time)
 	{
-		$sql = "UPDATE customer SET Status = 0 WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$time'";
+		$sql = "UPDATE customer SET Status = 'Đã hủy' WHERE customer.PhoneNumber = '$phonenumber' AND customer.CreateTime = '$time'";
 		$query = mysqli_query($this->con, $sql);
 		return $query;
 	}
@@ -137,11 +137,12 @@ class ProductModel extends DB
 		}
 		return $result;
 	}
-	public function DelOrder($reason,$id,$phone)
+	public function DelOrder($reason,$id)
 	{
-		$sql = "UPDATE customer SET Status = 0, ReasonCancel = '$reason' WHERE customer.CustomID = '$id'AND customer.PhoneNumber = '$phone'";
+		$sql = "UPDATE customer SET Status = 'Đã hủy', ReasonCancel = '$reason' WHERE customer.CustomID = '$id'";
 		$query = mysqli_query($this->con, $sql);
 		return $query;
 	}
+	
 }
 ?>
