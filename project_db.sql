@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 17, 2020 lúc 09:42 AM
+-- Thời gian đã tạo: Th8 21, 2020 lúc 09:10 AM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.4.8
 
@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `account` (
   `AccountID` int(11) NOT NULL,
   `FirstName` varchar(50) NOT NULL,
-  `Lastname` varchar(50) NOT NULL,
+  `LastName` varchar(50) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(100) NOT NULL,
   `Birthday` date NOT NULL,
   `PhoneNumber` int(11) DEFAULT NULL,
-  `email` varchar(225) DEFAULT NULL,
+  `Email` varchar(225) DEFAULT NULL,
   `Level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -43,8 +43,8 @@ CREATE TABLE `account` (
 -- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `account` (`AccountID`, `FirstName`, `Lastname`, `username`, `password`, `Birthday`, `PhoneNumber`, `email`, `Level`) VALUES
-(1, 'Nguyễn Văn ', 'Khảnh', 'admin', '$2y$10$prX4m4tb6WJPZGN.waG1OOmpX.fq63WktfWPU43hEvWZazM1QUe16', '2001-03-28', 389021327, 'khanhr.fe@gmail.com', 0);
+INSERT INTO `account` (`AccountID`, `FirstName`, `LastName`, `username`, `password`, `Birthday`, `PhoneNumber`, `Email`, `Level`) VALUES
+(1, 'Nguyễn Văn ', 'Khảnh', 'admin', '$2y$10$L/Af.wG4ntWWABkiDRn3wurIltu3n94yt9Bl9AEfrbk1tF7dXUudy', '2001-03-28', 389021327, 'khanhfe2020@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -1079,13 +1079,13 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`OrderID`, `Product`, `Image`, `PriceUnit`, `PricePromote`, `Color`, `Quantity`, `TotalPay`, `OrderDate`, `CustomID`) VALUES
 (1, 'Samsung Galaxy A51(8GB/128GB) ', 'img/product/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8990000, 8490000, 'Xanh ngọc', 1, 44470000, '05:09, 04-08-2020', 1),
 (2, 'Samsung Galaxy Tab S6', 'img/product/samsung-galaxy-tab-s6-600x600.jpg', 18490000, 17990000, 'Xanh dương', 2, 44470000, '05:09, 04-08-2020', 1),
-(3, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, 31990000, 'Xám', 1, 88470000, '05:11, 04-08-2020', 2),
+(3, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-256gb-black-400x400.jpg', 33990000, 31990000, 'Xám', 1, 88470000, '05:11, 04-08-2020', 2),
 (4, 'Apple MacBook Air 2020 i3', 'img/product/apple-macbook-air-2020-i3-220174-220174-600x600.jpg', 28990000, 0, 'Vàng', 1, 88470000, '05:11, 04-08-2020', 2),
 (5, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, 27490000, 'Xám', 1, 88470000, '05:11, 04-08-2020', 2),
 (7, 'OPPO Find X2', 'img/product/oppo-find-x2-blue-600x600-600x600.jpg', 23990000, 19990000, 'Xanh dương', 1, 19990000, '05:19, 04-08-2020', 5),
 (8, 'Samsung Galaxy S10 Lite', 'img/product/samsung-galaxy-s10-lite-blue-thumb-400x400.jpg', 14990000, 12990000, 'Đen', 1, 12990000, '05:25, 04-08-2020', 6),
 (9, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, 27490000, 'Xám', 1, 27490000, '05:30, 04-08-2020', 7),
-(10, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, 31990000, 'Xám', 1, 31990000, '05:31, 04-08-2020', 8),
+(10, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-256gb-black-400x400.jpg', 33990000, 31990000, 'Xám', 1, 31990000, '05:31, 04-08-2020', 8),
 (11, 'OPPO Reno2 F', 'img/product/oppo-reno2-f-600x600-200x200.jpg', 8990000, 7990000, 'Xanh lá & Tím', 2, 15980000, '05:34, 04-08-2020', 9),
 (12, 'HP EliteBook X360 14 i7 8550U', 'img/product/hp-elitebook-x360-1040-g5-i7-8550u-16gb-512gb-touc-6-600x600.jpg', 51990000, 41590000, 'Bạc', 1, 41590000, '05:41, 04-08-2020', 10),
 (13, 'OPPO Reno3', 'img/product/oppo-reno3-trang-600x600-400x400.jpg', 8990000, 8490000, 'Xanh dương', 2, 112960000, '05:42, 04-08-2020', 11),
